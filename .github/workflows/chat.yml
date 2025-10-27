@@ -1,0 +1,30 @@
+name: Groq Proxy
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [chat]
+
+jobs:
+  proxy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Proxy Groq request
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fetch = require('node-fetch');
+            const body = JSON.parse(process.env.INPUT_PAYLOAD);
+            const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${process.env.GROQ_API_KEY}`
+              },
+              body: JSON.stringify(body)
+            });
+            const data = await res.json();
+            return data;
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          INPUT_PAYLOAD: ${{ github.event.client_payload.body }}
