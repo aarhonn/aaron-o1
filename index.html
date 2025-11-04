@@ -20,13 +20,12 @@
             </div>
             <div class="sidebar-content">
                 <div class="conversations">
-                    <!-- Conversation history would go here -->
                 </div>
             </div>
             <div class="sidebar-footer">
-                <div class="user-info">
-                    <div class="user-avatar">AT</div>
-                    <div class="user-name">aaron-tibbitts</div>
+                <div class="user-info" id="settingsBtn">
+                    <div class="user-avatar">ME</div>
+                    <div class="user-name">Me</div>
                 </div>
             </div>
         </aside>
@@ -45,13 +44,47 @@
                             </button>
                         </div>
                         <div class="input-footer">
-                            aaron-one may produce inaccurate information. Built by aaron-tibbitts.
+                            aaron-one may produce inaccurate information, so check important stuff. I'm not responsible for anything bad. Built by aaron tibbitts.
                         </div>
                     </form>
                 </div>
             </div>
         </main>
     </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <h2>Settings</h2>
+            <form id="settingsForm" onsubmit="handleSettingsSubmit(event)">
+                <div class="form-group">
+                    <label for="settingsName">Name</label>
+                    <input type="text" id="settingsName" placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label for="settingsAge">Age</label>
+                    <input type="text" id="settingsAge" placeholder="Your age">
+                </div>
+                <div class="form-group">
+                    <label for="settingsInterests">Interests</label>
+                    <textarea id="settingsInterests" placeholder="Your interests, hobbies, etc."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="settingsBackground">Background</label>
+                    <textarea id="settingsBackground" placeholder="Your background, education, work, etc."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="settingsPreferences">Preferences</label>
+                    <textarea id="settingsPreferences" placeholder="Your preferences, communication style, etc."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit">Save Settings</button>
+                    <button type="button" onclick="settingsModal.style.display='none'">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
