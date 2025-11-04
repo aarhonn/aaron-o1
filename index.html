@@ -1,20 +1,57 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Fira+Code&display=swap" rel="stylesheet">
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Aaron-o1</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Aaron-o1</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <div class="chat-window" id="chat"></div>
-    <div class="input-bar">
-      <textarea id="userInput" placeholder="Type your message..."></textarea>
-      <button id="sendBtn">Send</button>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <button class="new-chat">
+                    <svg stroke="currentColor" fill="none" viewBox="0 0 24 24" height="24" width="24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.5v15m7.5-7.5h-15"></path>
+                    </svg>
+                    New chat
+                </button>
+            </div>
+            <div class="sidebar-content">
+                <div class="conversations">
+                    <!-- Conversation history would go here -->
+                </div>
+            </div>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">AT</div>
+                    <div class="user-name">aaron-tibbitts</div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="chat-container">
+                <div class="chat-window" id="chat"></div>
+                <div class="input-container">
+                    <form class="input-form">
+                        <div class="input-box">
+                            <textarea id="userInput" rows="1" placeholder="Message aaron-one..."></textarea>
+                            <button type="submit" id="sendBtn">
+                                <svg stroke="currentColor" fill="none" viewBox="0 0 24 24" height="24" width="24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="input-footer">
+                            aaron-one may produce inaccurate information. Built by aaron-tibbitts.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
     </div>
-  </div>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
