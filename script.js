@@ -1,6 +1,6 @@
-const API_KEY = "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"; 
+const API_KEY = "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"; 
 const ENDPOINT = "https://api.groq.com/chat/completions";
-const MODEL = "meta-llama/llama-4-maverick-17b-128e-instruct";
+const MODEL = "groq/compound";
 const COOL_GUY = "aaron"
 const chatEl = document.getElementById("chat");
 const userInput = document.getElementById("userInput");
@@ -208,3 +208,6 @@ settingsBtn?.addEventListener('click', () => {
 
 
 initializeChat();
+
+
+//This is code for an AI made by Aaron Tibbitts. Groq barely used at all, and AI hosted on Aaron's PC.
