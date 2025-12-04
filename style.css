@@ -391,3 +391,8 @@ textarea::placeholder {
 .form-actions button[type="button"]:hover {
     background: var(--bg-input);
 }
+
+.chat-container {
+  max-height: 80vh;
+  overflow-y: auto;
+}
