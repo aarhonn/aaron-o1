@@ -12,7 +12,7 @@ const newChatBtn = document.querySelector(".new-chat");
 
 let systemPrompt = "";
 let userSettings = {
-    interests: "Replace this with what you want Sterling to know about you...",
+    interests: "Replace this with what you want The Thinker to know about you...",
 };
 
 
@@ -109,7 +109,7 @@ function formatMessage(text) {
 function initializeChat() {
     loadUserSettings();
     updateSystemPrompt();
-    appendMessage("ai", "Hello! Nice to meet you. My name is Sterling. What's on your mind?");
+    appendMessage("ai", "Hello! Nice to meet you. I'm The Thinker. What's on your mind?");
 }
 
 function appendMessage(role, text) {
