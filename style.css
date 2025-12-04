@@ -413,3 +413,98 @@ textarea::placeholder {
 .form-actions button[type="button"]:hover {
     background: var(--bg-input);
 }
+
+.chat-container.welcome-state {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.chat-container.welcome-state .chat-window {
+  flex: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+
+.welcome-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  gap: 0.7rem;
+  text-align: center;
+  font-size: 2rem;
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  border-radius: 1.7rem;
+  background: var(--bg-main, #343541);
+  box-shadow: 0 2px 12px #0002;
+  margin-bottom: 2.5rem;
+}
+.welcome-message h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+.welcome-message p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+}
+
+
+.chat-container.welcome-state .input-container {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  background: var(--bg-input, #40414F);
+  border-radius: 2rem;
+  box-shadow: 0 2px 22px #0004;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  transition: 
+    border-radius 0.45s cubic-bezier(0.77,0,0.18,1),
+    box-shadow 0.45s cubic-bezier(0.77,0,0.18,1),
+    background 0.45s cubic-bezier(0.77,0,0.18,1),
+    margin 0.45s cubic-bezier(0.77,0,0.18,1);
+  position: relative;
+}
+
+/* Standard input bar at the bottom for regular chat */
+.chat-container:not(.welcome-state) .input-container {
+  border-radius: 1.1rem 1.1rem 0 0;
+  box-shadow: none;
+  padding: 0.7rem 1.25rem;
+  width: 100%;
+  max-width: 48rem;
+  margin: 0 auto;
+  background: var(--bg-main, #343541);
+  position: static;
+  transition: 
+    border-radius 0.4s cubic-bezier(0.77,0,0.18,1),
+    box-shadow 0.4s cubic-bezier(0.77,0,0.18,1),
+    margin 0.4s cubic-bezier(0.77,0,0.18,1);
+}
+
+
+.chat-container.welcome-state textarea {
+  border-radius: 2rem !important;
+  background: var(--bg-input, #40414F);
+}
+.chat-container:not(.welcome-state) textarea {
+  border-radius: 0.7rem !important;
+}
+
+
+@media (max-width: 600px) {
+  .chat-container.welcome-state .input-container,
+  .chat-container:not(.welcome-state) .input-container {
+    border-radius: 1rem !important;
+  }
+}
