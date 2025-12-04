@@ -111,16 +111,14 @@ function formatMessage(text) {
 
 
 function initializeChat() {
+  
   chatEl.innerHTML = `
     <div class="welcome-message">
       <h1>How can I help?</h1>
       <p>Start a conversation to get answers...</p>
     </div>
   `;
-  chatContainer.classList.add('welcome-state');
-    loadUserSettings();
-    updateSystemPrompt();
-    appendMessage("ai", "Hello! Nice to meet you. My name is Sterling. What's on your mind?");
+  chatContainer.classList.add('welcome-state'); 
 }
 
 function appendMessage(role, text) {
