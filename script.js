@@ -9,6 +9,10 @@ const settingsBtn = document.getElementById("settingsBtn");
 const settingsModal = document.getElementById("settingsModal");
 const newChatBtn = document.querySelector(".new-chat");
 const chatContainer = document.querySelector('.chat-container');
+const chatContainer = document.querySelector('.chat-container');
+
+
+
 
 let systemPrompt = "";
 let userSettings = {
@@ -120,33 +124,26 @@ function initializeChat() {
 }
 
 function appendMessage(role, text) {
-    function appendMessage(role, text) {
+ 
+  const welcome = chatEl.querySelector('.welcome-message');
+  if (welcome) welcome.remove();
+  chatContainer.classList.remove('welcome-state');
+
   
-    const welcome = chatEl.querySelector('.welcome-message');
-    if (welcome) welcome.remove();
+  const div = document.createElement("div");
+  div.className = `message ${role}`;
+  const content = document.createElement("div");
+  content.className = "message-content";
+
+ 
+  content.innerHTML = formatMessage(text);
+  div.appendChild(content);
+
   
-    chatContainer.classList.remove('welcome-state');
+  chatEl.appendChild(div);
+
   
-    const div = document.createElement("div");
-    div.className = `message ${role}`;
-    
-    const content = document.createElement("div");
-    content.className = "message-content";
-    
-    const avatar = document.createElement("div");
-    avatar.className = "avatar";
-    avatar.textContent = role === "user" ? "AT" : "AI";
-    
-    const messageText = document.createElement("div");
-    messageText.className = "message-text";
-    messageText.innerHTML = formatMessage(text);
-    
-    content.appendChild(avatar);
-    content.appendChild(messageText);
-    div.appendChild(content);
-    
-    chatEl.appendChild(div);
-    chatEl.scrollTop = chatEl.scrollHeight;
+  chatEl.scrollTop = chatEl.scrollHeight;
 }
 
 async function sendMessage() {
