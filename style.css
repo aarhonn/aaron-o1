@@ -250,6 +250,28 @@ textarea::placeholder {
     transition: all 0.3s ease-out;
 }
 
+.welcome-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.8rem;
+  font-weight: 500;
+  gap: 10px;
+}
+
+#chat {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 0;
+  scroll-behavior: smooth;
+  min-height: 200px;
+  max-height: 100vh;
+}
+
 .typing-indicator.visible {
     max-height: 80px;
     opacity: 1;
