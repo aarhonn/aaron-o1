@@ -111,37 +111,30 @@ function formatMessage(text) {
 
 
 function initializeChat() {
-  
-  chatEl.innerHTML = `
-    <div class="welcome-message">
-      <h1>How can I help?</h1>
-      <p>Start a conversation to get answers...</p>
-    </div>
-  `;
-  chatContainer.classList.add('welcome-state'); 
+    
+    chatEl.innerHTML = `
+        <div class="welcome-message">
+          <h1>How can I help?</h1>
+          <p>Send a message to The Thinker...</p>
+        </div>
+    `;
+    chatContainer.classList.add('welcome-state');
 }
 
 function appendMessage(role, text) {
- 
-  const welcome = chatEl.querySelector('.welcome-message');
-  if (welcome) welcome.remove();
-  chatContainer.classList.remove('welcome-state');
+    const welcome = chatEl.querySelector('.welcome-message');
+    if (welcome) welcome.remove();
+    chatContainer.classList.remove('welcome-state');
 
-  
-  const div = document.createElement("div");
-  div.className = `message ${role}`;
-  const content = document.createElement("div");
-  content.className = "message-content";
+    const div = document.createElement("div");
+    div.className = `message ${role}`;
+    const content = document.createElement("div");
+    content.className = "message-content";
+    content.innerHTML = formatMessage(text);
+    div.appendChild(content);
+    chatEl.appendChild(div);
 
- 
-  content.innerHTML = formatMessage(text);
-  div.appendChild(content);
-
-  
-  chatEl.appendChild(div);
-
-  
-  chatEl.scrollTop = chatEl.scrollHeight;
+    chatEl.scrollTop = chatEl.scrollHeight;
 }
 
 async function sendMessage() {
@@ -192,9 +185,12 @@ document.querySelector('.input-form').addEventListener('submit', (e) => {
 });
 
 userInput.addEventListener("keydown", e => {
-    if (e.key === "Enter" && !e.shiftKey) {
-        e.preventDefault();
-        sendMessage();
+    if (e.key === "Enter") {
+        if (!e.shiftKey) {
+            e.preventDefault(); 
+            sendMessage(); 
+        }
+        
     }
 });
 
