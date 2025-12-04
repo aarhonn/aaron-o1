@@ -396,3 +396,31 @@ textarea::placeholder {
   max-height: 80vh;
   overflow-y: auto;
 }
+.chat-container::-webkit-scrollbar {
+  width: 8px;             
+}
+
+.chat-container::-webkit-scrollbar-track {
+  background: #1e1e1e;      /
+  border-radius: 4px;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+  background: #555;        
+}
+
+.chat-container::-webkit-scrollbar-thumb:hover {
+  background: #888;         
+}
+
+.chat-container {
+  max-height: 80vh;
+  overflow-y: auto;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.chat-container::-webkit-scrollbar {
+  display: none;
+}
