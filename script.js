@@ -8,7 +8,7 @@ const sendBtn = document.getElementById("sendBtn");
 const settingsBtn = document.getElementById("settingsBtn");
 const settingsModal = document.getElementById("settingsModal");
 const newChatBtn = document.querySelector(".new-chat");
-
+const chatContainer = document.querySelector('.chat-container');
 
 let systemPrompt = "";
 let userSettings = {
@@ -107,12 +107,26 @@ function formatMessage(text) {
 
 
 function initializeChat() {
+  chatEl.innerHTML = `
+    <div class="welcome-message">
+      <h1>How can I help?</h1>
+      <p>Start a conversation to get answers...</p>
+    </div>
+  `;
+  chatContainer.classList.add('welcome-state');
     loadUserSettings();
     updateSystemPrompt();
     appendMessage("ai", "Hello! Nice to meet you. My name is Sterling. What's on your mind?");
 }
 
 function appendMessage(role, text) {
+    function appendMessage(role, text) {
+  
+    const welcome = chatEl.querySelector('.welcome-message');
+    if (welcome) welcome.remove();
+  
+    chatContainer.classList.remove('welcome-state');
+  
     const div = document.createElement("div");
     div.className = `message ${role}`;
     
