@@ -1,4 +1,4 @@
-const API_KEY = "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"
+const API_KEY = "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"
 const ENDPOINT = "https://api.groq.com/openai/v1/chat/completions";
 const MODEL = "openai/gpt-oss-20b";
 const COOL_GUY = "AARHON"
